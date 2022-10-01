@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {AiFillCaretDown} from 'react-icons/ai'
 import './Input.css'
-import './search_bar.scss';
 import '../utils.css'
 import Subject from './Subject';
 import { navigate } from "@reach/router"
@@ -14,7 +13,6 @@ const Input = () =>{
     let empty = ToDisplay !== 0;
 
     const handleListDisplay = () => {
-        console.log()
         setClicked(!clicked)
    } 
 
@@ -32,14 +30,17 @@ const Input = () =>{
     }else{
 		
         list = subjects.filter(subject => subject.match(new RegExp(value, "i")))
-        .map((subject) => (
-            <Subject subject ={subject}></Subject>
+        .map((subject) => 
+            {
+                return <Subject SubjectName ={subject}></Subject>
+            }
+
             
-        ))
+        )
     }
 
     return(
-        <div  clqssName= 'u-flexColumn Input-page'>       
+        <div  className= 'u-flexColumn Input-page'>       
         <div  className='u-flex Input-container'>
         <input className='Input-field'
         type='text'
@@ -61,7 +62,7 @@ const Input = () =>{
         </div>
        
        </div>
-         </div>  );
+);
 };
 
 export default Input;

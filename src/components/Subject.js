@@ -13,7 +13,6 @@ const Subject = (props) =>{
         navigate(`/subjects/${name}`)
         
     }
-
     return(
             <div className='u-flex Subject-container' onClick={move}>
                 <div className='Subject-text'>
