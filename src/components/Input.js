@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {AiFillCaretDown} from 'react-icons/ai'
 import './Input.css'
+import './search_bar.scss';
 import '../utils.css'
 import Subject from './Subject';
+import { navigate } from "@reach/router"
 
 const Input = () =>{
     const [value, setValue] = useState("");
@@ -19,9 +21,10 @@ const Input = () =>{
 
     const onKeyUp = (event)=> {
         console.log("OnKeyUp")
-        const newCountry = ToDisplay[0]
-		// if(event.key === 'Enter'){
-		// }
+        const newSubject= ToDisplay[0]
+		if(event.key === 'Enter'){
+            navigate(`/subjects/${newSubject}`)
+		}
 	}
 
     if(clicked === true){
@@ -36,7 +39,7 @@ const Input = () =>{
     }
 
     return(
-        <div className='u-flexColumn Input-page'>
+        <div  clqssName= 'u-flexColumn Input-page'>       
         <div  className='u-flex Input-container'>
         <input className='Input-field'
         type='text'
@@ -58,8 +61,7 @@ const Input = () =>{
         </div>
        
        </div>
-      
-    );
+         </div>  );
 };
 
 export default Input;
@@ -67,9 +69,13 @@ export default Input;
 const subjects = [
     "Calculus",
     "Multivariable Calculus",
-    "Data Structures",
+    "Biology",
+    "Chemistry",
+    "Physics",
+    "Data Structures and Algorithms",
     "Python",
     "Java",
     "Sewing",
     "The World??"
 ]
+

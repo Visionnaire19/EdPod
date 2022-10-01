@@ -1,10 +1,11 @@
-import React from React;
-import './SubjectPage.css'
+import React from 'react';
+import './SubjectPage.css';
+import Header from '../components/SubjectHeader'
 
-const SubjectPage = () =>{
+const SubjectPage = (props) =>{
 
     return(
-        <></>
+       <Header SubjectName = {props.SubjectName}></Header>
     );
 };
 

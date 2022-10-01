@@ -5,7 +5,7 @@ const SubjectHeader = (props) => {
 
     return (
         <div className="Subject-header">
-         <h1>{props.name}</h1>
+         <h1>{props.SubjectName}</h1>
       </div>
     );
 
