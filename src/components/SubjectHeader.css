@@ -1,0 +1,10 @@
+.Subject-header {
+    padding: 25px 0;
+    text-align: center;
+    background: #222;
+  }
+
+  .Subject-text{
+    color: black;
+    text-decoration: none;
+}

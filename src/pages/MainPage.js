@@ -7,10 +7,10 @@ const MainPage = () => {
   
     return (
         <div className="MainPage-container" >
-            <div>
+           
             <Input></Input>
-            <AiFillCaretDown size={20} onClick={handleListDisplay} ></AiFillCaretDown>
-            </div>
+            
+           
 
         </div>
         
@@ -20,12 +20,3 @@ const MainPage = () => {
 };
 export default MainPage;
 
-const subjects = [
-    "Calculus",
-    "Multivariable Calculus",
-    "Data Structures",
-    "Python",
-    "Java",
-    "Sewing",
-    "The World??"
-]

@@ -1,0 +1,13 @@
+.Subject-text{
+    margin-left: 30px;
+    color: black;
+    text-decoration: none;
+}
+.Subject-container{
+    height: 4vw;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 3px 2px grey;
+    padding: 1%;
+    align-items: center;
+}
