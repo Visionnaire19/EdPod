@@ -2,7 +2,7 @@ import { Router } from "@reach/router";
 import './App.css';
 import MainPage from './pages/MainPage.js';
 import SubjectPage from "./pages/SubjectPage";
-import { AppProps } from 'next/app';
+
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="App-container">
       <Router>
         <MainPage path="/"/>
-        <SubjectPage path="/subjects/:name"></SubjectPage>
+        <SubjectPage path="subjects/:SubjectName"></SubjectPage>
         </Router>
         
     </div>

@@ -1,13 +1,7 @@
-html,
-body,
-#__next {
-  height: 100%;
-  margin: 0;
-  width: 100%;
-}
+
 
 .bubble {
-    background-color: white;
+    background-color: blue;
     border-radius: 50%;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.1);
     height: 152px;
@@ -19,15 +13,14 @@ body,
     
 
   }
-
-  .bubbles {
+.bubbles {
     height: 600px;
     overflow: hidden;
     position: relative;
   }
 
-  .bubbles-wrapper {
-    background-color: salmon;
+.bubbles-wrapper {
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
