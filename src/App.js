@@ -2,6 +2,7 @@ import { Router } from "@reach/router";
 import './App.css';
 import MainPage from './pages/MainPage.js';
 import SubjectPage from "./pages/SubjectPage";
+import { AppProps } from 'next/app';
 
 function App() {
   return (
