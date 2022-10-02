@@ -6,7 +6,6 @@ import Bubbles from "../components/Bubbles";
 const MainPage = () => {
   return (
     <>
-      <NavBar />
       <div className="wrapper">
         <div className="upper">
           <p className="slogan">Connecting learners beyond the classroom</p>

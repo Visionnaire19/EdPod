@@ -6,6 +6,7 @@ import "./LoginPage.css";
 import "./MainPage.css";
 import "./Forms.css";
 import { randomNumberInRange, get, post } from "../utils";
+import { navigate } from "@reach/router"
 
 
 
@@ -27,15 +28,19 @@ class LoginPage extends Component {
       this.setState({password : event.target.value});}
 
     handleSubmit = (event) => {
-      post('/api/login', {username: this.state.username, password: this.state.password}).then((pods) => {
-        console.log("HERREEEEE", this.state.username, this.state.password, pods);
+      get('/api/login', {username: this.state.username, password: this.state.password}).then((user) => {
+        if(user.username){
+          post("/api/initsocket", { socketid: socket.id });
+          navigate("/")
+        }
+
       });
         event.preventDefault();
     }
     render(){
     return (
       <>
-      <NavbarLogin />
+      
     <div className="wrapper">
     <form onSubmit={this.handleSubmit}>
         <label className="label">Username (4 - 16 characters)</label>
