@@ -7,35 +7,31 @@ import './MainPage.css';
 import './Forms.css';
 
 
+function collectLogin () {
+  const username = document.getElementById('Username').value;
+  const password = document.getElementById('Password').value;
+  
+}
 
 const LoginPage = () => {
-  function collectLogin () {
-    const username = document.getElementById('Username').value;
-    const password = document.getElementById('Password').value;
-    console.log(email, password);
-  }
     return (
       <>
       <NavbarLogin />
     <div className="wrapper">
-        <Form>
-      <Form.Group className="mb-3" id="Username">
-        <Form.Label className="label">Username (4-16 characters)</Form.Label>
-        <Form.Control type="text" className="box" placeholder="Username" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" id="Password">
-        <Form.Label className="label">Password (8 - 16 characters)</Form.Label>
-        <Form.Control type="password" className="box" placeholder="Password" />
-      </Form.Group>
-      <Button variant="primary" type="submit" className="button">
+    <form onSubmit={collectLogin}>
+        <label className="label">Username (4 - 16 characters)</label>
+        <input type="text" id="Username" className="box" placeholder="Enter username"></input>
+        <label className="label">Password</label>
+        <input type="password" id="Password" className="box" placeholder="Password" />
+      <button variant="primary" type="submit" className="button">
         Login
-      </Button>
+      </button>
       <small className="small">Not registered yet? Sign up <a target="/signup">here!</a></small>
-    </Form>
+    </form>
     </div>
     </>
-    )
+   );
 }
+
 export default LoginPage;
 
