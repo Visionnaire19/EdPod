@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './SubjectPage.css';
 import Header from '../components/SubjectHeader'
-import {randomNumberInRange} from '../utils'
+import {randomNumberInRange, get, post} from '../utils'
 import { Noise } from 'noisejs';
 import '../utils.css'
 
@@ -13,14 +13,7 @@ function getWindowDimensions() {
     };
   }
 
-  const newPod = () =>{
-      useEffect(() => {
-        post("api/newPod", {query: props.recipe.name}).then((res) =>{
   
-        },);
-      },[]);
-      
-    }
   const links = [
     "https://mit.zoom.us/j/3454166550",
     "https://mit.zoom.us/j/3454166550",
@@ -31,6 +24,18 @@ function getWindowDimensions() {
     "https://mit.zoom.us/j/3454166550",
     "https://mit.zoom.us/j/3454166550",
   ]
+  const rooms = [
+    "Differential equations",
+    "Music", 
+    "Video", 
+     "Afrobeat",
+    "Differential equations",
+     "Differential equations",
+    "Differential equations", 
+   "Differential equations",
+   
+    
+]
   
   
 const CANVAS_WIDTH = getWindowDimensions.width;
@@ -42,7 +47,40 @@ const SCROLL_SPEED = 0.05;
 const noise = new Noise();
 
 const SubjectPage = (props) =>{
-    console.log("Subject props " + props.SubjectName)
+  let subject = props.SubjectName;
+  let links = []
+  let rooms = []
+
+  //Will ultimately only get the people in the same institution as the person connected
+  useEffect(() => {
+    get("/api/pods",{ topic: subject}).then((pods) => {
+      pods.array.forEach(element => {
+        links.push(element.link)
+        rooms.push(element.name)
+        
+      });
+
+
+    });
+  }, []);
+
+  const positions = rooms.map(
+    (name) => {
+        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-200), y:randomNumberInRange(40,400), name: name} 
+    });
+
+    
+
+    const body = {name: "name", link: "link", topic: "topic"}
+    //Creating a new pod
+  const newPod = () =>{
+      useEffect(() => {
+        post("/api/newPod", {query: body}).then((res) =>{
+  
+        },);
+      },[]);
+      
+    }
 
     const animationRef = React.useRef();
     const bubblesRef = React.useRef(
@@ -105,10 +143,15 @@ const SubjectPage = (props) =>{
         animationRef.current = requestAnimationFrame(animate);
       }
 
+      function collectData() {
+        let topic = prompt("Pleaser enter the topic you wish to study: ");
+        let meetingLink = prompt("Please enter the meeting link: ");
+      }
+
 
     return(
         <div> 
-            <Header SubjectName = {props.SubjectName}></Header>
+            <Header SubjectName = {subject}></Header>
         <div className="bubbles-wrapper">
         <div className="bubbles">
         {positions.map((bubble, index) => (
@@ -131,7 +174,8 @@ const SubjectPage = (props) =>{
       </div>
     </div>
     <div>
-      <h3 className="SubjectPage-fixedtext">Have another topic in mind? Create a new subject matter bubble <a href="">here</a>.</h3>
+
+      <button type="mybutton" onclick = {collectData}>Have another topic in mind? Create a new subject matter bubble here.</button>
     </div>
         </div>
 
@@ -141,22 +185,7 @@ const SubjectPage = (props) =>{
 
 export default SubjectPage
 
-const rooms = [
-    "Differential equations",
-    "Music", 
-    "Video", 
-     "Afrobeat",
-    "Differential equations",
-     "Differential equations",
-    "Differential equations", 
-   "Differential equations",
-   
-    
-]
 
 
 
-const positions = rooms.map(
-    (name) => {
-        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-200), y:randomNumberInRange(40,400), name: name} 
-    });
+

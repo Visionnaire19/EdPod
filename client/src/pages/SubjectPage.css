@@ -28,8 +28,11 @@
     height: 100%;
   }
 
-  .SubjectPage-fixedtext {
+.mybutton {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    padding: 0;
+    border: none;
+    background: none;
+    bottom: -4px;
+    right: 10px;
    }

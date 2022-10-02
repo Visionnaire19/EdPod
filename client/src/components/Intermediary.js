@@ -11,12 +11,12 @@ const Intermediary = () => {
 
 }
 
-const Final = () => {
+/* const Final = () => {
   return ( 
     onClick= alert({Intermediary})
   )
-  }
+  } */
 
-export default Final;
+export default Intermediary;
 
 
