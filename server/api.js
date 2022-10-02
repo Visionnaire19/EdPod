@@ -38,10 +38,11 @@ router.get("/pods",(req, res) => {
    
   })
 
-router.get("/login", (req,res) =>{
-  User.find({username : req.query.username}).then((user) =>{
-    console.log("USER",user);
-    if(user == null){
+router.post("/login", (req,res) =>{
+  
+  User.find({username : req.body.username}).then((user) =>{
+  
+      console.log("CREATION")
       const newUser = new User({
         name: user.name,
         institution: user.institution,
@@ -50,7 +51,7 @@ router.get("/login", (req,res) =>{
       });
   
       return newUser.save();
-    }
+    
     res.send(user)
   })
   
