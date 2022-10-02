@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 const path = require("path"); 
 
 const api = require("./api");
+const validator = require("./validator");
+const auth = require("./auth");
 
 
 const mongoConnectionURL = process.env.MONGO_SRV;
@@ -23,6 +25,7 @@ mongoose
 
 // create a new express server
 const app = express();
+app.use(validator.checkRoutes);
 
 // allow us to process POST requests
 app.use(express.json());
@@ -36,6 +39,7 @@ app.use(
   })
 );
 
+app.use(auth.populateCurrentUser);
 // connect user-defined routes
 app.use("/api", api);
 
@@ -68,6 +72,9 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 3000;
 const server = http.Server(app);
 
+const socketManager = require("./server-socket");
+socketManager.init(server);
 server.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
+

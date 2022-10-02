@@ -39,19 +39,53 @@ router.get("/pods",(req, res) => {
   })
 
 router.post("/signup", (req,res) =>{
-  
-  User.find({username : req.body.username}).then((user) =>{
-      const newUser = new User({
-        name: user.name,
-        institution: user.institution,
-        globalInteraction: user.globalInteraction
-  
-      });
-  
-      return newUser.save();
-    
-    res.send(user)
-  })
+  let user = req.body;
+
+  console.log("2CEFWRVFE", user.globalInteraction)
+  const newUser = new User({
+    username: user.username,
+    password: user.password,
+    email:user.email,
+    institution: user.institution,
+    globalInteraction: false,
+
+  });
+
+  newUser.save().then((user) => res.send(user));
+
   
 })
+
+router.get("/login", (req,res) => {
+  let password = req.query.password;
+  let username = req.query.username;
+
+  User.findOne({ username: username }, function(err, user) {
+    if (err) throw err;
+
+    user.comparePassword(password, function(err, isMatch) {
+        if (err) throw err;
+        console.log(password, isMatch);
+        res.send(user) 
+    });
+  
+    
+  });
+});
+
+router.get("/whoami", (req, res) => {
+  if (!req.user) {
+    // not logged in
+    return res.send({});
+  }
+  });
+
+router.post("/initsocket", (req, res) => {
+    // do nothing if user not logged in
+    if (req.user)
+      socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
+    res.send({});
+  });
+
+
 module.exports = router;
