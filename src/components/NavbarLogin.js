@@ -8,16 +8,12 @@ const NavBar = () => {
     </header>
 
     <div className="buttons">
-    <a href="src/pages/SignupPage">
       <button type="button" className="signUpButton">
         Sign Up
       </button>
-      </a>
-      <a href="src/pages/LoginPage">
       <button type="button" className="loginButton">
         Log In
       </button>
-      </a>
     </div>
 
     </div>

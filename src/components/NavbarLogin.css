@@ -12,17 +12,23 @@
 }
 
 .buttons{
+    display: flex;
+    align-items: center;
     font-family: 'Chalkduster', sans-serif;
+    margin-left: auto;
+    padding: 0 7vw 0 3vw;
 }
 
 .loginButton{
-    background-color: #8064A2;
     font-size: 20px;
     font-family: 'Chalkduster', sans-serif;
+    background-color: white;
+    border: #FFB217 2px solid;
 }
 
 .signUpButton{
     background-color: #FFB217;
+    color: white;
     font-size: 20px;
     font-family: 'Chalkduster', sans-serif;
 }
