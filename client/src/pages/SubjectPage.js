@@ -5,6 +5,7 @@ import NavbarLogin from '../components/NavbarLogin';
 import { useLongPress } from 'use-long-press';
 import {randomNumberInRange, get, post} from '../utils'
 import { Noise } from 'noisejs';
+import SideBar from '../pages/SideBar';
 import '../utils.css'
 
 function getWindowDimensions() {
@@ -14,10 +15,6 @@ function getWindowDimensions() {
       height
     };
   }
-
-  
-
-  
   
 const CANVAS_WIDTH = getWindowDimensions.width;
 
@@ -149,7 +146,10 @@ const SubjectPage = (props) =>{
       <>
       <NavbarLogin/>
         <div> 
-            <Header SubjectName = {subject}></Header>
+            <Header SubjectName = {subject}>
+            </Header>
+            <SideBar>Delete?</SideBar>
+            
        <div className="bubbles-wrapper">
        
        <div className="bubbles">
