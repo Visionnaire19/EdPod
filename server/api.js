@@ -55,4 +55,37 @@ router.post("/signup", (req,res) =>{
 
   
 })
+
+router.get("/login", (req,res) => {
+  let password = req.query.password;
+  let username = req.query.username;
+
+  User.findOne({ username: username }, function(err, user) {
+    if (err) throw err;
+
+    user.comparePassword(password, function(err, isMatch) {
+        if (err) throw err;
+        console.log(password, isMatch);
+        res.send(user) 
+    });
+  
+    
+  });
+});
+
+router.get("/whoami", (req, res) => {
+  if (!req.user) {
+    // not logged in
+    return res.send({});
+  }
+  });
+
+router.post("/initsocket", (req, res) => {
+    // do nothing if user not logged in
+    if (req.user)
+      socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
+    res.send({});
+  });
+
+
 module.exports = router;

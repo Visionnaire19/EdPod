@@ -70,7 +70,9 @@ class SignupPage extends Component {
             </form>
             </div>
             </>
-          );
+          )
+            
+          
 }
 }
 

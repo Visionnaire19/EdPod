@@ -30,6 +30,7 @@
     font-size: 20px;
     font-family: 'Chalkduster', sans-serif;
     background-color: white;
+    height: 3.3vh;
     border: #FFB217 2px solid;
 }
 .loginButton:hover{
@@ -41,6 +42,8 @@
     color: white;
     font-size: 20px;
     font-family: 'Chalkduster', sans-serif;
+    border: none;
+    height: 3.3vh;
 }
 .signUpButton:hover{
     cursor: pointer;

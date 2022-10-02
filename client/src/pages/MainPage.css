@@ -48,3 +48,8 @@
   font-style: italic;
   color: black;
 }
+
+a{
+  text-decoration: none!important;
+  color: black;
+}
