@@ -9,38 +9,40 @@ import { randomNumberInRange, get, post } from "../utils";
 
 
 
-function collectLogin(event) {
-  const username = document.getElementById("Username").value;
-  const password = document.getElementById("Password").value;
-
-  document.write(username, password);
-
-  get("/api/login", { username: username, password: password }).then((pods) => {
-    console.log(username, password, pods);
-  });
-  event.preventDefault();
-}
-
 const LoginPage = () => {
-  return (
-    <>
+    this.state = {'username': '', 'password': ''};
+    handleDeltaName = (event) => {
+      this.setState({username : event.target.value});}
+    
+    handleDeltaPassword = (event) => {
+      this.setState({password : event.target.value});}
+
+    handleSubmit = (event) => {
+      get('/api/login', {username: this.state.username, password: this.state.password}).then((pods) => {
+        console,log(username, password, pods);
+      });
+        event.preventDefault();
+    }
+
+    return (
+      <>
       <NavbarLogin />
-      <div className="wrapper">
-        <form onSubmit={collectLogin}>
-          <label className="label">Username (4 - 16 characters)</label>
-          <input type="text" id="Username" className="box" placeholder="Enter username"></input>
-          <label className="label">Password</label>
-          <input type="password" id="Password" className="box" placeholder="Password" />
-          <button variant="primary" type="submit" id="subbutton" className="button">
-            Login
-          </button>
-          <small className="small">
-            Not registered yet? Sign up <a target="/signup">here!</a>
-          </small>
-        </form>
-      </div>
+    <div className="wrapper">
+    <form onSubmit={this.handleSubmit}>
+        <label className="label">Username (4 - 16 characters)</label>
+        <input type="text" id="Username" className="box" value={this.state.username} onChange={this.handleDeltaName} placeholder="Enter username"></input>
+        <label className="label">Password</label>
+        <input type="password" id="Password" className="box" value={this.state.password} placeholder="Password" />
+      <button variant="primary" type="submit" className="button">
+        Login
+      </button>
+      <small className="small">Not registered yet? Sign up <a target="/signup">here!</a></small>
+    </form>
+    </div>
     </>
-  );
-};
+   );
+    }
+  
 
 export default LoginPage;
+    
