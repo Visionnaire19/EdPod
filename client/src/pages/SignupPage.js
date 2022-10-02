@@ -13,7 +13,7 @@ function collectSignup () {
   data.append('password', document.getElementById('Password').value);
   data.append('email', document.getElementById('Email').value);
   data.append('Checkbox', document.getElementById('Checkbox').value);
-  for (let [k, v] of data.entries()) {document.write(k, v);} }
+   }
   
 const SignupPage = () => {
 
@@ -34,12 +34,10 @@ const SignupPage = () => {
               </button>
             </form>
             </div>
-<<<<<<< HEAD
+
           );
-=======
             </>
           )
->>>>>>> 8786bb9582a0dc07bd20a0ca5c58b727b2ca8176
 }
 export default SignupPage;
 
