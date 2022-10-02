@@ -13,7 +13,7 @@
 .bubbles {
   height: 70vh;
   /* overflow: hidden; */
-  position: relative;
+  /* position: relative; */
 }
 
 .bubbles-wrapper {

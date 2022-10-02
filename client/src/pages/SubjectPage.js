@@ -48,7 +48,7 @@ const SubjectPage = (props) => {
   const positions = rooms.map((name) => {
     return {
       s: 1.0,
-      x: randomNumberInRange(0, getWindowDimensions().width),
+      x: randomNumberInRange(0, getWindowDimensions().width-700),
       y: randomNumberInRange(40, 200),
       name: name,
     };
