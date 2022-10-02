@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SubjectPage.css';
 import Header from '../components/SubjectHeader'
 import NavbarLogin from '../components/NavbarLogin';
@@ -15,28 +15,7 @@ function getWindowDimensions() {
   }
 
   
-  const links = [
-    "https://mit.zoom.us/j/3454166550",
-    "https://mit.zoom.us/j/3454166550",
-    "https://mit.zoom.us/j/3454166550",
-    "https://mit.zoom.us/j/3454166550",
-    "https://mit.zoom.us/j/3454166550",
-    "https://mit.zoom.us/j/3454166550",
-    "https://mit.zoom.us/j/3454166550",
-    "https://mit.zoom.us/j/3454166550",
-  ]
-  const rooms = [
-    "Differential equations",
-    "Music", 
-    "Video", 
-     "Afrobeat",
-    "Differential equations",
-     "Differential equations",
-    "Differential equations", 
-   "Differential equations",
-   
-    
-]
+
   
   
 const CANVAS_WIDTH = getWindowDimensions.width;
@@ -48,40 +27,47 @@ const SCROLL_SPEED = 0.05;
 const noise = new Noise();
 
 const SubjectPage = (props) =>{
+  const [links, setLinks] = useState([])
+  const [rooms, setRooms] = useState([])
+  const [empty, setEmpty] = useState(true)
   let subject = props.SubjectName;
-  let links = []
-  let rooms = []
+
+  
+  
 
   //Will ultimately only get the people in the same institution as the person connected
+  let body = { topic: subject}
+  console.log(links.length)
   useEffect(() => {
-    get("/api/pods",{ topic: subject}).then((pods) => {
-      pods.array.forEach(element => {
-        links.push(element.link)
-        rooms.push(element.name)
-        
-      });
-
-
+    let tempLinks = []
+    let tempRooms = []
+    get("/api/pods",body).then((pods) => {
+      for(let i=0; i<pods.length; i++){
+        tempLinks.push(pods[i].link)
+        tempRooms.push(pods[i].name)
+      }
+      setLinks(tempLinks)
+      setRooms(tempRooms)
+     
     });
-  }, []);
+  },[]);
+
+ 
+  
+
 
   const positions = rooms.map(
     (name) => {
-        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-200), y:randomNumberInRange(40,400), name: name} 
+        return { s: 1.0, x: randomNumberInRange(200,getWindowDimensions().width-600), y:randomNumberInRange(40,200), name: name} 
     });
 
     
-
-    const body = {name: "name", link: "link", topic: "topic"}
     //Creating a new pod
-  const newPod = () =>{
-      useEffect(() => {
-        post("/api/newPod", {query: body}).then((res) =>{
-  
-        },);
-      },[]);
-      
-    }
+  const newPod = (body) =>{
+        post("/api/newPod", body).then((res) =>{
+
+        });
+      }
 
     const animationRef = React.useRef();
     const bubblesRef = React.useRef(
@@ -147,7 +133,15 @@ const SubjectPage = (props) =>{
       function collectData() {
         let topic = prompt("Pleaser enter the topic you wish to study: ");
         let meetingLink = prompt("Please enter the meeting link: ");
+
+        console.log(topic + meetingLink);
+
+        const body = {name: topic, link: meetingLink, topic: subject}
+        newPod(body);
+
+
       }
+ 
 
 
     return(
@@ -155,8 +149,9 @@ const SubjectPage = (props) =>{
       <NavbarLogin/>
         <div> 
             <Header SubjectName = {subject}></Header>
-        <div className="bubbles-wrapper">
-        <div className="bubbles">
+       <div className="bubbles-wrapper">
+       
+       <div className="bubbles">
         {positions.map((bubble, index) => (
            <a className = "u-removeLinkLine" href={links[index]} target="_blank">
           <div className="bubble"

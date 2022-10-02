@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import NavbarLogin from '../components/NavbarLogin';
@@ -6,38 +6,76 @@ import './MainPage.css';
 import './SignupPage.css';
 import './Forms.css';
 import '../utils.css'
+import { randomNumberInRange, get, post } from "../utils";
 
-function collectSignup () {
-  let data = new FormData();
-  data.append('username', document.getElementById('Username').value);
-  data.append('password', document.getElementById('Password').value);
-  data.append('email', document.getElementById('Email').value);
-  data.append('Checkbox', document.getElementById('Checkbox').value);
-  for (let [k, v] of data.entries()) {document.write(k, v);} }
+class SignupPage extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      username: '',
+      password: '',
+      email: '',
+      institution: '',
+      checkbox: '',
+    }
+  }
+
+    handleDeltaName = (event) => {
+      this.setState({username : event.target.value});}
+      
+    handleDeltaPassword = (event) => {
+      this.setState({password : event.target.value});}
+
+    handleDeltaEmail = (event) => {
+      this.setState({email : event.target.value})};
+
+    handleDeltaInstitution = (event) => {
+      this.setState({institution : event.target.value});}
+
+    handleDeltaCheckbox = (event) => {
+      this.setState({checkbox : event.target.value});}
+      
+   
+
+    handleSubmit = (event) => {
+      post('/api/signup', {username: this.state.username, password: this.state.password, email: this.state.email, institution: this.state.institution, globalInteraction: this.state.checkbox}).then((pods) => {
+      });
+        event.preventDefault();}
+
+    render() {
   
-const SignupPage = () => {
-
     return (
       <>
       <NavbarLogin />
           <div className="wrapper">
-            <form onSubmit={collectSignup}>
+
+            <form onSubmit={this.handleSubmit}>
                 <label className="label">Username (4 - 16 characters)</label>
-                <input type="text" id="Username" className="box" placeholder="Enter username"></input>
+                <input type="text" id="Username" className="box" value={this.state.username}  onChange={this.handleDeltaName} placeholder="Enter username"></input>
                 <label className="label">Email</label>
-                <input type="email" id="Email" className="box" placeholder="Enter email (.edu if available)" />
+                <input type="email" id="Email" className="box" value={this.state.email} onChange={this.handleDeltaEmail} placeholder="Enter email (.edu if available)" />
                 <label className="label">Password</label>
-                <input type="password" id="Password" className="box" placeholder="Password" />
-                <input type="checkbox" id="Checkbox" className="small"></input>
+                <input type="password" id="Password" className="box" value={this.state.password} onChange={this.handleDeltaPassword} placeholder="Password" />
+                <label className="label">Institution</label>
+                <input type="text" id="Institution" className="box" value={this.state.institution}  onChange={this.handleDeltaInstitution} placeholder="Enter Institution" />
+                <label for="Checkbox" className="small"> Do you wish to interact with learners only in your institution?</label>
+                <select id="Checkbox" value={this.state.checkbox} onChange={this.handleDeltaCheckbox}>
+               <option value="1" type="number"> Yes</option>
+               <option value="0" type="number">No</option>
+                </select>
               <button variant="primary" className="sign_button" type="submit">
                 Sign Up
               </button>
             </form>
             </div>
-=======
             </>
           )
+            
+          
 }
+}
+
 export default SignupPage;
 
 

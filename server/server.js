@@ -11,7 +11,7 @@ const api = require("./api");
 
 
 const mongoConnectionURL = process.env.MONGO_SRV;
-const databaseName = "edpod";
+const databaseName = "EdPod";
 
 // connect to mongodb
 mongoose
