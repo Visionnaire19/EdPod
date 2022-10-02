@@ -3,6 +3,7 @@ import './SubjectPage.css';
 import Header from '../components/SubjectHeader'
 import {randomNumberInRange} from '../utils'
 import { Noise } from 'noisejs';
+import '../utils.css'
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -28,7 +29,7 @@ const CANVAS_WIDTH = getWindowDimensions.width;
 
 const NOISE_AMOUNT = 5;
 const NOISE_SPEED = 0.004;
-const SCROLL_SPEED = 0.3;
+const SCROLL_SPEED = 0.05;
 
 const noise = new Noise();
 
@@ -75,7 +76,6 @@ const SubjectPage = (props) =>{
           const newY = bubble.y + random * SCROLL_SPEED;
     
           const newXWithNoise = newX + randomX * NOISE_AMOUNT;
-    
           const newYWithNoise = newY + randomY * NOISE_AMOUNT;
     
           const element = document.getElementById(`bubble-${index}`);
@@ -85,7 +85,7 @@ const SubjectPage = (props) =>{
           }
     
           return {
-            ...bubble.name,
+            ...bubble,
             noiseSeedX: newNoiseSeedX,
             noiseSeedY: newNoiseSeedY,
             x: newX < -200 ? CANVAS_WIDTH : newX,
@@ -104,6 +104,7 @@ const SubjectPage = (props) =>{
         <div className="bubbles-wrapper">
         <div className="bubbles">
         {positions.map((bubble, index) => (
+           <a className = "u-removeLinkLine" href={links[index]} target="_blank">
           <div className="bubble"
           
             id={`bubble-${index}`}
@@ -114,8 +115,9 @@ const SubjectPage = (props) =>{
             }}
             
            >
-            <a href={links[index]} target="_blank"> <h3>{bubble.name}</h3></a>
+            <h3>{bubble.name}</h3>
           </div>
+          </a>
           
         ))}
       </div>
@@ -145,5 +147,5 @@ const rooms = [
 
 const positions = rooms.map(
     (name) => {
-        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-300), y:randomNumberInRange(40,300), name: name} 
+        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-200), y:randomNumberInRange(40,400), name: name} 
     });
