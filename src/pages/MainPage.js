@@ -1,26 +1,16 @@
-import Input from "../components/Input";
-import '../utils.css'
-import './MainPage.css'
+import { Form } from "react-bootstrap";
+import "./MainPage.css";
+import NavBar from "../components/NavbarLogin";
+
+
 const MainPage = () => {
-
-    document.title = "Main Page";
-  
-    return (
-        <div className="wrapper">
-            <header className="MainPage-header">
-               <h1> EdPod </h1>
-            </header>
-                <main className="MainPage-container">
-                    <Input></Input>
-                     </main>
-                <footer className="MainPage-footer">
-                     <p> Footer </p>
-                    </footer>
-                    </div>
-        
-    );
-
-
+  return (
+    <>
+    <NavBar />
+    <div className="wrapper" />
+    </>
+  );
 };
-export default MainPage;
 
+
+export default MainPage;

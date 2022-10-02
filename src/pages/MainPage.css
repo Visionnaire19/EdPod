@@ -1,54 +1,6 @@
-/* We want the page to be at least full-screen, but when the page height is greater than the browser window height, we want a scrollbar to appear.
-
-Thanks to flexbox, we’re able to create this functionality very easily. Here’s the required CSS: */
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-  }
-
-/*.wrapper > * {
-    padding: 20px;
-}*/
-
-/*.page-main {
-    flex-grow: 1;
-}*/
-
-/* The elements should be vertically aligned.
-On small screens the menu should be the last element, while on wider screens the button should be the last one.
-On small screens the header elements are wrapped into two lines. The navigation itself covers the second line. On larger screens all elements are evenly distributed in a single row. */
-.MainPage-header  {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding-left: 7vw;
-    font-family: 'Chalkduster', sans-serif;
-                                            
-  }
-
-.MainPage-container{
-    min-height: 100%;
-    width: 100%;
-    display: flex;
-    flex-grow: 1; 
-   /*justify-content:center; */
-    background-color: antiquewhite;
-    align-items: center;  
-}
-
-/* On small screens the text should be the last element, while on wider screens the social profiles list should be the last one.
-On small screens the footer elements are wrapped into two lines. On the other hand, on larger screens all elements are vertically centered and evenly distributed in a single row. */
-.MainPage-footer {
-    display: flex;
-    flex-direction: column-reverse;
-    background: white;
-    }
-   
-.MainPage-footer ul {
-    display: flex;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    height: 100vh;
+    background-color: #FFFDE8;
   }
