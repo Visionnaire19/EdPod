@@ -1,6 +1,6 @@
 import React  from 'react';
 import './Subject.css'
-import { navigate } from "@reach/router"
+import { navigate, Link } from "@reach/router"
 
 /**
  * 
@@ -10,16 +10,18 @@ import { navigate } from "@reach/router"
 const Subject = (props) =>{
     const name = props.SubjectName
     const move = () => {
-        navigate(`/subjects/${name}`)
+        // navigate(`/subjects/${name}`)
         
     }
     return(
+        <Link to={`subjects/${name}`}>  
             <div className='u-flex Subject-container' onClick={move}>
                 <div className='Subject-text'>
                     {name}   
                 </div>
 
             </div>
+            </Link>
 
 
     );

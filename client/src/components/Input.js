@@ -32,7 +32,7 @@ const Input = () =>{
         list = subjects.filter(subject => subject.match(new RegExp(value, "i")))
         .map((subject) => 
             {
-                return <Subject SubjectName ={subject}></Subject>
+                return <Subject key= {subject} SubjectName ={subject}></Subject>
             }
 
             
