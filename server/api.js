@@ -47,7 +47,7 @@ router.post("/signup", (req,res) =>{
     password: user.password,
     email:user.email,
     institution: user.institution,
-    globalInteraction: user.globalInteraction
+    globalInteraction: false,
 
   });
 

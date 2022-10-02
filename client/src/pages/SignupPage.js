@@ -39,9 +39,7 @@ class SignupPage extends Component {
    
 
     handleSubmit = (event) => {
-      document.write("JEAHH")
       post('/api/signup', {username: this.state.username, password: this.state.password, email: this.state.email, institution: this.state.institution, globalInteraction: this.state.checkbox}).then((pods) => {
-        console.log("HERREEEEE", this.state.username, this.state.password, this.state.email, this.state.institution, this.state.checkbox, pods);
       });
         event.preventDefault();}
 
@@ -62,9 +60,9 @@ class SignupPage extends Component {
                 <label className="label">Institution</label>
                 <input type="text" id="Institution" className="box" value={this.state.institution}  onChange={this.handleDeltaInstitution} placeholder="Enter Institution" />
                 <label for="Checkbox" className="small"> Do you wish to interact with learners only in your institution?</label>
-                <select id="Checkbox">
+                <select id="Checkbox" value={this.state.checkbox} onChange={this.handleDeltaCheckbox}>
                <option value="1" type="number"> Yes</option>
-               <option value="2" type="number">No</option>
+               <option value="0" type="number">No</option>
                 </select>
               <button variant="primary" className="sign_button" type="submit">
                 Sign Up
