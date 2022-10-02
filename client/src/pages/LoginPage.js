@@ -4,29 +4,28 @@ import Button from 'react-bootstrap/Button';
 import {Link} from "react-router-dom";
 import './LoginPage.css';
 import './MainPage.css';
+import './Forms.css';
 
 
 
 const LoginPage = () => {
     return (
     <div className="wrapper">
-        <main className="MainPage-container">
         <Form>
       <Form.Group className="mb-3" controlId="formUsername">
-        <Form.Label>Username (4-16 characters)</Form.Label>
-        <Form.Control type="text" placeholder="Username" />
+        <Form.Label className="label">Username (4-16 characters)</Form.Label>
+        <Form.Control type="text" className="box" placeholder="Username" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formPassword">
-        <Form.Label>Password (8 - 16 characters)</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Label className="label">Password (8 - 16 characters)</Form.Label>
+        <Form.Control type="password" className="box" placeholder="Password" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" className="button">
         Login
-        <small className="small">Not registered yet? Sign up <a target="/SignupPage">here!</a></small>
       </Button>
+      <small className="small">Not registered yet? Sign up <a target="/signup">here!</a></small>
     </Form>
-    </main>
     </div>
     )
 }
