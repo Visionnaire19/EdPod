@@ -12,7 +12,12 @@ function collectSignup () {
   data.append('username', document.getElementById('Username').value);
   data.append('password', document.getElementById('Password').value);
   data.append('email', document.getElementById('Email').value);
-  data.append('Checkbox', document.getElementById('Checkbox').value);
+  data.append('checkbox', document.getElementById('Checkbox').value);
+
+  let username = data.get('username');
+  let password = data.get('password');
+  let email = data.get('email');
+  let checkbox = data.get('checkbox');
    }
   
 const SignupPage = () => {
@@ -34,8 +39,6 @@ const SignupPage = () => {
               </button>
             </form>
             </div>
-
-          );
             </>
           )
 }
