@@ -17,4 +17,11 @@
     padding: 1vh 3vw 3vh 3vw;
  }
 
+ .sendBack{
+   text-decoration: none;
+   color: black;
+ }
+.sendBack:hover{
+   cursor: pointer;
+}
 

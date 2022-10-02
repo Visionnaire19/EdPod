@@ -10,10 +10,8 @@
     margin-right: 20px;
     position: absolute;
     transition: opacity ease-in-out 1s;
-    
-    
-
   }
+  
 .bubbles {
     height: 600px;
     overflow: hidden;
@@ -33,7 +31,6 @@
     border: none;
     color: black;
     background: none;
-    bottom: 0px;
     float: right;
     font-style: italic;
     font-size: 15px;
