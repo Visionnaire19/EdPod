@@ -38,11 +38,9 @@ router.get("/pods",(req, res) => {
    
   })
 
-router.post("/login", (req,res) =>{
+router.post("/signup", (req,res) =>{
   
   User.find({username : req.body.username}).then((user) =>{
-  
-      console.log("CREATION")
       const newUser = new User({
         name: user.name,
         institution: user.institution,

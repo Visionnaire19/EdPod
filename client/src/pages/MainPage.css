@@ -34,7 +34,17 @@
 }
 
 .upper{
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 5vh;
+}
+
+.slogan{
+  font-family: 'Arial Narrow', sans-serif;
+  /* font-family: 'Chalkduster', sans-serif; */
+  font-size: 5vh;
+  font-style: italic;
+  color: black;
 }
