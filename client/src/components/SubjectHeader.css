@@ -1,7 +1,8 @@
 .Subject-header {
-    padding: 25px 0;
+    padding: 2vh 0;
     text-align: center;
     background: antiquewhite;
+    font-family: 'Arial Narrow', sans-serif;
   }
   
   .Subject-text{
