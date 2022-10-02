@@ -2,6 +2,14 @@ const { request } = require("express");
 const express = require("express");
 const router = express.Router();
 const Pod = require("./models/pod");
+const User = require("./models/user");
+
+
+const api = require("./api");
+const auth = require("./auth");
+
+// socket stuff
+const socketManager = require("./server-socket");
 
 // router.get("/pods", (req, res) => {
 //     res.status(200).send(req.body);
@@ -30,4 +38,21 @@ router.get("/pods",(req, res) => {
    
   })
 
+router.get("/login", (req,res) =>{
+  User.find({username : req.query.username}).then((user) =>{
+    console.log("USER",user);
+    if(user == null){
+      const newUser = new User({
+        name: user.name,
+        institution: user.institution,
+        globalInteraction: user.globalInteraction
+  
+      });
+  
+      return newUser.save();
+    }
+    res.send(user)
+  })
+  
+})
 module.exports = router;
