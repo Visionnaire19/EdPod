@@ -11,12 +11,24 @@ function getWindowDimensions() {
       height
     };
   }
+
+  const links = [
+    "https://mit.zoom.us/j/3454166550",
+    "https://mit.zoom.us/j/3454166550",
+    "https://mit.zoom.us/j/3454166550",
+    "https://mit.zoom.us/j/3454166550",
+    "https://mit.zoom.us/j/3454166550",
+    "https://mit.zoom.us/j/3454166550",
+    "https://mit.zoom.us/j/3454166550",
+    "https://mit.zoom.us/j/3454166550",
+  ]
+  
   
 const CANVAS_WIDTH = getWindowDimensions.width;
 
 const NOISE_AMOUNT = 5;
 const NOISE_SPEED = 0.004;
-const SCROLL_SPEED = 0.01;
+const SCROLL_SPEED = 0.3;
 
 const noise = new Noise();
 
@@ -102,7 +114,7 @@ const SubjectPage = (props) =>{
             }}
             
            >
-            <a href={bubble.link}> <h3>{bubble.name}</h3></a>
+            <a href={links[index]} target="_blank"> <h3>{bubble.name}</h3></a>
           </div>
           
         ))}
@@ -117,20 +129,21 @@ const SubjectPage = (props) =>{
 export default SubjectPage
 
 const rooms = [
-    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
-    {name: "Music", link:"https://mit.zoom.us/j/3454166550"},
-    {name: "Video", link:"https://mit.zoom.us/j/3454166550"},
-    {name: "Afrobeat", link:"https://mit.zoom.us/j/3454166550"},
-    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
-    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
-    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
-    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
+    "Differential equations",
+    "Music", 
+    "Video", 
+     "Afrobeat",
+    "Differential equations",
+     "Differential equations",
+    "Differential equations", 
+   "Differential equations",
    
     
 ]
 
 
+
 const positions = rooms.map(
-    (name,link) => {
-        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-300), y:randomNumberInRange(40,300), name: name, link:link} 
+    (name) => {
+        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-300), y:randomNumberInRange(40,300), name: name} 
     });

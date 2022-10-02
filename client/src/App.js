@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import './App.css';
 import MainPage from './pages/MainPage.js';
 import SubjectPage from "./pages/SubjectPage";
+import LoginPage from "./pages/LoginPage"
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <MainPage path="/"/>
         <SubjectPage path="subjects/:SubjectName"></SubjectPage>
+        <LoginPage path="/login"></LoginPage>
         </Router>
         
     </div>

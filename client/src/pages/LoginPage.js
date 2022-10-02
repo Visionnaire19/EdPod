@@ -23,7 +23,7 @@ const LoginPage = () => {
       </Form.Group>
       <Button variant="primary" type="submit">
         Login
-        <small className="small">Not registered yet? Sign up <Link to="/SignupPage">here!</Link></small>
+        <small className="small">Not registered yet? Sign up <a target="/SignupPage">here!</a></small>
       </Button>
     </Form>
     </main>
