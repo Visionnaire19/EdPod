@@ -1,0 +1,41 @@
+
+.label, .box {
+    display: block;
+}
+
+.label {
+    font-family: 'Arial Narrow', 'Arial', sans-serif;
+    font-size: 3vh;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.box{
+    width: 30vw;
+    height: 6vh;
+    font-size: 3vh;
+    font-family: 'Arial Narrow', sans-serif;
+    border: black 1px solid;
+    margin-bottom: 10px;
+    
+  }
+
+.button {
+    width: 6vw;
+    height: 6vh;
+    font-size: 3vh;
+    font-family: 'Arial Narrow', sans-serif;
+    border: #FFB217 2px solid;
+    background-color: white;
+    display: block;
+    float: right;
+
+}
+
+.text {
+    text-align: center;
+    font-family: 'Arial Narrow', 'Arial', sans-serif;
+    font-size: 5vh;
+    font-weight: bold;
+}
+

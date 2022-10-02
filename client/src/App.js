@@ -4,6 +4,7 @@ import './App.css';
 import MainPage from './pages/MainPage.js';
 import SubjectPage from "./pages/SubjectPage";
 import LoginPage from "./pages/LoginPage"
+import SignupPage from "./pages/SignupPage"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <MainPage path="/"/>
         <SubjectPage path="subjects/:SubjectName"></SubjectPage>
         <LoginPage path="/login"></LoginPage>
+        <SignupPage path="/signup"></SignupPage>
         </Router>
         
     </div>

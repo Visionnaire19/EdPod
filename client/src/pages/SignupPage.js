@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './MainPage.css';
 import './SignupPage.css';
+import './Forms.css';
 import '../utils.css'
 
 
@@ -12,22 +13,22 @@ const SignupPage = () => {
             <main className="MainPage-container">
             <Form>
             <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Username (4 - 16 characters)</Form.Label>
-                <Form.Control type="email" placeholder="Enter username" />
+                <Form.Label className="label">Username (4 - 16 characters)</Form.Label>
+                <Form.Control type="email" className="box" placeholder="Enter username" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email (.edu if available)" />
+                <Form.Label className="label">Email</Form.Label>
+                <Form.Control type="email" className="box" placeholder="Enter email (.edu if available)" />
               </Form.Group>
         
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Label className="label">Password</Form.Label>
+                <Form.Control type="password" className="box" placeholder="Password" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Do you want to interact with your university only?" />
+                <Form.Check type="checkbox" className="small" label="Do you want to interact with your university only?" />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" className="sign_button" type="submit">
                 Sign Up
               </Button>
             </Form>
