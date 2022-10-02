@@ -13,7 +13,7 @@ function getWindowDimensions() {
     };
   }
 
-  const Like = () =>{
+  const newPod = () =>{
       useEffect(() => {
         post("api/newPod", {query: props.recipe.name}).then((res) =>{
   
