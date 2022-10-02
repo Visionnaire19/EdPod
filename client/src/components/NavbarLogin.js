@@ -1,3 +1,4 @@
+import React from "react";
 import "./NavbarLogin.css";
 
 const NavBar = () => {
