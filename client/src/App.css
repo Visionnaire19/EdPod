@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: hotpink;
 }
 
 .App-link {
@@ -39,7 +39,7 @@
 
 .App-container {
   max-width: 100%;
-  margin: auto;
+  margin: 0;
   height: 100vh;
 }
 

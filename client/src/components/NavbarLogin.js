@@ -4,7 +4,7 @@ import "./NavbarLogin.css";
 const NavBar = () => {
   return (
     <div className="navbar">
-      <a href="/">
+      <a href="/" className="underline">
         <header className="pageTitle">EdPod</header>
       </a>
 

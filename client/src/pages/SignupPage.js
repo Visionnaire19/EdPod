@@ -26,6 +26,7 @@ const SignupPage = () => {
       <>
       <NavbarLogin />
           <div className="wrapper">
+<<<<<<< HEAD
             <form>
                 <label className="label">Username (4 - 16 characters)</label>
                 <input type="text" id="Username" className="box" placeholder="Enter username"></input>
@@ -35,9 +36,33 @@ const SignupPage = () => {
                 <input type="password" id="Password" className="box" placeholder="Password" />
                 <input type="checkbox" id="Checkbox" className="small"></input>
               <button variant="primary" className="sign_button" type="button" onClick={collectSignup}>
+=======
+            <div className="innerBox">
+          <h1 className="title">Sign Up</h1>
+            <main className="MainPage-container">
+            <Form>
+            <Form.Group className="mb-3" controlId="formBasicUsername">
+                <Form.Label className="label">Username (4 - 16 characters)</Form.Label>
+                <Form.Control type="email" className="box" placeholder="Enter username" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label className="label">Email</Form.Label>
+                <Form.Control type="email" className="box" placeholder="Enter email (.edu if available)" />
+              </Form.Group>
+        
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label className="label">Password</Form.Label>
+                <Form.Control type="password" className="box" placeholder="Password" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" className="small" label="Do you want to interact with your university only?" />
+              </Form.Group>
+              <Button variant="primary" className="sign_button" type="submit">
+>>>>>>> f8d3d7c (bubble updates)
                 Sign Up
               </button>
             </form>
+            </div>
             </div>
             </>
           );

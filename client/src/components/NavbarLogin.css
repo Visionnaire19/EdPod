@@ -12,6 +12,10 @@
 .pageTitle:hover{
     cursor: pointer;
 }
+.underline{
+    text-decoration: none!important;
+
+}
 
 .buttons{
     display: flex;

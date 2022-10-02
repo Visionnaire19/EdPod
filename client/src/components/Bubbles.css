@@ -1,0 +1,11 @@
+.bubbles{
+    /* display:flex; */
+    justify-content: center;
+    align-items: center;
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 4vh;
+}
+
+.bubbles:hover{
+    cursor: pointer;
+}

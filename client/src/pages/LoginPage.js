@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, Component }from "react";
+=======
+import React from "react";
+>>>>>>> f8d3d7c (bubble updates)
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavbarLogin from "../components/NavbarLogin";
 import "./LoginPage.css";
 import "./MainPage.css";
 import "./Forms.css";
+<<<<<<< HEAD
 import { randomNumberInRange, get, post } from "../utils";
 
 
@@ -56,3 +61,37 @@ class LoginPage extends Component {
 
 export default LoginPage;
     
+=======
+
+const LoginPage = () => {
+  return (
+    <>
+      <NavbarLogin />
+      <div className="wrapper">
+        <div className="innerBox">
+          <h1 className="title">Login</h1>
+          <Form>
+            <Form.Group className="mb-3" controlId="formUsername">
+              <Form.Label className="label">Username (4-16 characters)</Form.Label>
+              <Form.Control type="text" className="box" placeholder="Username" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formPassword">
+              <Form.Label className="label">Password (8 - 16 characters)</Form.Label>
+              <Form.Control type="password" className="box" placeholder="Password" />
+            </Form.Group>
+            <Button variant="primary" type="submit" className="button">
+              Login
+            </Button>
+
+            <a href="/signup">
+              <small className="small">Not registered yet? Sign up here</small>
+            </a>
+          </Form>
+        </div>
+      </div>
+    </>
+  );
+};
+export default LoginPage;
+>>>>>>> f8d3d7c (bubble updates)
