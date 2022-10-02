@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SubjectPage.css';
 import Header from '../components/SubjectHeader'
 import NavbarLogin from '../components/NavbarLogin';
+import { useLongPress } from 'use-long-press';
 import {randomNumberInRange, get, post} from '../utils'
 import { Noise } from 'noisejs';
 import '../utils.css'

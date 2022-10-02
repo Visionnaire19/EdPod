@@ -57,7 +57,11 @@ class SignupPage extends Component {
                 <input type="password" id="Password" className="box" value={this.state.password} placeholder="Password" />
                 <label className="label">Institution</label>
                 <input type="text" id="Institution" className="box" value={this.state.institution} placeholder="Enter Institution" />
-                <input type="checkbox" id="Checkbox" className="small"></input>
+                <label for="Checkbox" className="small"> Do you wish to interact with learners only in your institution?</label>
+                <select id="Checkbox">
+               <option value="1" type="number"> Yes</option>
+               <option value="2" type="number">No</option>
+                </select>
               <button variant="primary" className="sign_button" type="submit">
                 Sign Up
               </button>
