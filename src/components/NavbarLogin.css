@@ -14,9 +14,10 @@
 .buttons{
     display: flex;
     align-items: center;
+    
     font-family: 'Chalkduster', sans-serif;
     margin-left: auto;
-    padding: 0 7vw 0 3vw;
+    padding-right: 7vw;
 }
 
 .loginButton{
