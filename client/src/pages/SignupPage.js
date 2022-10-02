@@ -40,7 +40,7 @@ const SignupPage = () => {
             </form>
             </div>
             </>
-          )
+          );
 }
 export default SignupPage;
 
