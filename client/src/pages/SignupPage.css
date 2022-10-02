@@ -6,9 +6,9 @@
 
 
 .sign_button {
-    width: 8vw;
-    height: 6vh;
-    font-size: 3vh;
+    width: 6vw;
+    height: 4vh;
+    font-size: 2vh;
     font-family: 'Arial Narrow', sans-serif;
     border: #FFB217 2px solid;
     background-color: white;
@@ -16,3 +16,13 @@
     float: right;
 
 }
+
+.title{
+    font-family: 'Arial Narrow', 'Arial', sans-serif;
+    padding: 1vh 1vw 1vh 1vw;
+    font-size: 40px;
+    }
+
+ .innerBox{
+    padding: 1vh 3vw 3vh 3vw;
+ }

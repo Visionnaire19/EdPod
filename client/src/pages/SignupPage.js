@@ -47,6 +47,7 @@ class SignupPage extends Component {
       <>
       <NavbarLogin />
           <div className="wrapper">
+
             <form onSubmit={this.handleSubmit}>
                 <label className="label">Username (4 - 16 characters)</label>
                 <input type="text" id="Username" className="box" value={this.state.username} placeholder="Enter username"></input>

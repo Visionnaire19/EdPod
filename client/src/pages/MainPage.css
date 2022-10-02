@@ -6,7 +6,6 @@
     height: 92vh;
     width: 100%;
     background-color: #FFFDE8;
-    border: black 2px solid;
   }
 
 .textBox{
@@ -21,4 +20,21 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  font-family: 'Arial Narrow', sans-serif;
+  font-size: 1.5vh;
+}
+
+.bubbles{
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  bottom:0;
+  height: 10vh;
+  column-gap: 0;
+}
+
+.upper{
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5vh;
 }
