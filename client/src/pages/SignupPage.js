@@ -26,7 +26,7 @@ const SignupPage = () => {
       <>
       <NavbarLogin />
           <div className="wrapper">
-            <form onSubmit={collectSignup}>
+            <form>
                 <label className="label">Username (4 - 16 characters)</label>
                 <input type="text" id="Username" className="box" placeholder="Enter username"></input>
                 <label className="label">Email</label>
@@ -34,7 +34,7 @@ const SignupPage = () => {
                 <label className="label">Password</label>
                 <input type="password" id="Password" className="box" placeholder="Password" />
                 <input type="checkbox" id="Checkbox" className="small"></input>
-              <button variant="primary" className="sign_button" type="submit">
+              <button variant="primary" className="sign_button" type="button" onClick={collectSignup}>
                 Sign Up
               </button>
             </form>
