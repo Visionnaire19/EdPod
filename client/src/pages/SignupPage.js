@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import NavbarLogin from '../components/NavbarLogin';
 import './MainPage.css';
 import './SignupPage.css';
 import './Forms.css';
@@ -17,6 +18,8 @@ function collectSignup () {
 const SignupPage = () => {
 
     return (
+      <>
+      <NavbarLogin />
           <div className="wrapper">
             <form onSubmit={collectSignup}>
                 <label className="label">Username (4 - 16 characters)</label>
@@ -31,7 +34,12 @@ const SignupPage = () => {
               </button>
             </form>
             </div>
+<<<<<<< HEAD
           );
+=======
+            </>
+          )
+>>>>>>> 8786bb9582a0dc07bd20a0ca5c58b727b2ca8176
 }
 export default SignupPage;
 

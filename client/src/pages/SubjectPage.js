@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import './SubjectPage.css';
 import Header from '../components/SubjectHeader'
+import NavbarLogin from '../components/NavbarLogin';
 import {randomNumberInRange, get, post} from '../utils'
 import { Noise } from 'noisejs';
-import Intermediary from '/Users/sawasan/Desktop/HackProject/package.json/client/src/components/Intermediary.js';
 import '../utils.css'
 
 function getWindowDimensions() {
@@ -151,6 +151,8 @@ const SubjectPage = (props) =>{
 
 
     return(
+      <>
+      <NavbarLogin/>
         <div> 
             <Header SubjectName = {subject}></Header>
         <div className="bubbles-wrapper">
@@ -175,9 +177,11 @@ const SubjectPage = (props) =>{
       </div>
     </div>
     <div>
-      <button onClick = {collectData}>New Pod</button>
+
+      <button className = "mybutton" onClick = {collectData}><h3>Have another topic in mind? Create a new subject matter bubble here.</h3></button>
     </div>
         </div>
+        </>
 
        
     );

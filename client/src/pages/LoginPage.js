@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import {Link} from "react-router-dom";
+import NavbarLogin from '../components/NavbarLogin';
 import './LoginPage.css';
 import './MainPage.css';
 import './Forms.css';
@@ -15,6 +15,8 @@ const LoginPage = () => {
     console.log(email, password);
   }
     return (
+      <>
+      <NavbarLogin />
     <div className="wrapper">
         <Form>
       <Form.Group className="mb-3" id="Username">
@@ -32,6 +34,7 @@ const LoginPage = () => {
       <small className="small">Not registered yet? Sign up <a target="/signup">here!</a></small>
     </Form>
     </div>
+    </>
     )
 }
 export default LoginPage;

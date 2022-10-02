@@ -27,3 +27,19 @@
     justify-content: center;
     height: 100%;
   }
+
+.mybutton {
+    padding: 0;
+    border: none;
+    color: black;
+    background: none;
+    bottom: 0px;
+    float: right;
+    font-style: italic;
+    font-size: 15px;
+    padding: 0 1vw 2vh 0;
+    text-decoration: underline;
+   }
+  .mybutton:hover{
+    cursor:pointer;
+  }
