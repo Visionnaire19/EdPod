@@ -8,7 +8,16 @@ const MainPage = () => {
   return (
     <>
     <NavBar />
-    <div className="wrapper" />
+    <div className="wrapper">
+      <input className="textBox"> 
+      </input>
+      <p >
+        Enter the subject or course you are currently working on.
+      </p>
+      <p>
+        Or click on one below to get started.
+      </p>
+    </div>
     </>
   );
 };
