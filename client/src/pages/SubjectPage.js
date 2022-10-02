@@ -3,6 +3,7 @@ import './SubjectPage.css';
 import Header from '../components/SubjectHeader'
 import {randomNumberInRange} from '../utils'
 import { Noise } from 'noisejs';
+import Intermediary from '/Users/sawasan/Desktop/HackProject/package.json/client/src/components/Intermediary.js';
 import '../utils.css'
 
 function getWindowDimensions() {
@@ -105,6 +106,11 @@ const SubjectPage = (props) =>{
         animationRef.current = requestAnimationFrame(animate);
       }
 
+      function collectData() {
+        let topic = prompt("Pleaser enter the topic you wish to study: ");
+        let meetingLink = prompt("Please enter the meeting link: ");
+      }
+
 
     return(
         <div> 
@@ -131,7 +137,7 @@ const SubjectPage = (props) =>{
       </div>
     </div>
     <div>
-      <button>New Pod</button>
+      <button onClick = {collectData}>New Pod</button>
     </div>
         </div>
 
