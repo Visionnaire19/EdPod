@@ -13,6 +13,14 @@ function getWindowDimensions() {
     };
   }
 
+  const Like = () =>{
+      useEffect(() => {
+        post("api/newPod", {query: props.recipe.name}).then((res) =>{
+  
+        },);
+      },[]);
+      
+    }
   const links = [
     "https://mit.zoom.us/j/3454166550",
     "https://mit.zoom.us/j/3454166550",
@@ -121,6 +129,9 @@ const SubjectPage = (props) =>{
           
         ))}
       </div>
+    </div>
+    <div>
+      <button>New Pod</button>
     </div>
         </div>
 
