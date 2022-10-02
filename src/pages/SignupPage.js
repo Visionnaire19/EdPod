@@ -7,7 +7,8 @@ import './SignupPage.css';
 
 const SignupPage = () => {
     return (
-
+          <div className="wrapper">
+            <main className="MainPage-container">
             <Form>
             <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Label>Username (4 - 16 characters)</Form.Label>
@@ -29,6 +30,8 @@ const SignupPage = () => {
                 Sign Up
               </Button>
             </Form>
+            </main>
+            </div>
           )
 }
 

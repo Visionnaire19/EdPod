@@ -24,12 +24,7 @@ const SubjectPage = (props) =>{
     console.log("Subject props " + props.SubjectName)
 
     
-    const backgroundPositions = [];
-    for (let i = 0; i < 7; i++) {
-        for (let j = 0; j < 7; j++) {
-            backgroundPositions.push(`${-154 * j}px ${-154 * i}px`);
-  }
-}
+    
 
     const animationRef = React.useRef();
     const bubblesRef = React.useRef(
@@ -71,11 +66,7 @@ const SubjectPage = (props) =>{
           const newY = bubble.y + random * SCROLL_SPEED;
     
           const newXWithNoise = newX + randomX * NOISE_AMOUNT;
-        //   console.log("BEFORE If " + newXWithNoise)
-        //   if(newXWithNoise <0){
-        //     console.log("AFTER If " + newXWithNoise)
-        //    newXWithNoise = CANVAS_WIDTH - (newX + randomX * NOISE_AMOUNT);
-        //   }
+    
           const newYWithNoise = newY + randomY * NOISE_AMOUNT;
     
           const element = document.getElementById(`bubble-${index}`);
@@ -104,17 +95,17 @@ const SubjectPage = (props) =>{
         <div className="bubbles">
         {positions.map((bubble, index) => (
           <div className="bubble"
+          
             id={`bubble-${index}`}
             key={`${bubble.x} ${bubble.y}`}
             style={{
-              backgroundPosition: backgroundPositions[index],
               opacity: isReady ? 1 : 0,
               transform: `translate(${bubble.x}px, ${bubble.y}px) scale(${bubble.s})`,
             }}
             
-            
-           
-          />
+           >
+            <h3>{bubble.name}</h3>
+          </div>
         ))}
       </div>
     </div>
@@ -127,10 +118,14 @@ const SubjectPage = (props) =>{
 export default SubjectPage
 
 const rooms = [
-    "Visionnaire19",
-    "Qudus Shittu",
-    "Barima",
-    "Clara",
+    "Differential equations",
+    "Music",
+    "Video",
+    "Afrobeat",
+    "Differential equations",
+    "Music",
+    "Video",
+    "Afrobeat",
     
 ]
 
@@ -139,4 +134,3 @@ const positions = rooms.map(
     (name) => {
         return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-300), y:randomNumberInRange(40,300), name: name} 
     });
-
