@@ -23,10 +23,11 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <NavBar userId={userId}/>
+      {/* <NavBar userId={userId}/> */}
       <div className="App-container">
       
       <Router>
+        <MainPage path="/:userId" userId={userId}/> 
         <MainPage path="/" userId={userId}/>
         <SubjectPage path="subjects/:SubjectName"></SubjectPage>
         <LoginPage path="/login"></LoginPage>

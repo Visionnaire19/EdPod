@@ -5,11 +5,11 @@ const NavBar = ({userId}) => {
   console.log("navbar", userId)
   return (
     <div className="navbar">
-      <a href="/" className="underline">
+      <a href="/{userId}" className="underline">
         <header className="pageTitle">EdPod</header>
       </a>
 
-      {userId ? <button type="button" className="signUpButton"></button>
+      {userId ? <div className="buttons"><button type="button" className="signUpButton"> Logout</button></div>
       : <div className="buttons">
       <a href="/signup">
         <button type="button" className="signUpButton">

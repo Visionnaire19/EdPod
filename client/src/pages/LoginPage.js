@@ -7,6 +7,7 @@ import "./MainPage.css";
 import "./Forms.css";
 import { randomNumberInRange, get, post } from "../utils";
 import { navigate } from "@reach/router"
+import { socket } from "../client-socket";
 
 
 
@@ -30,8 +31,9 @@ class LoginPage extends Component {
     handleSubmit = (event) => {
       get('/api/login', {username: this.state.username, password: this.state.password}).then((user) => {
         if(user.username){
+          
+          navigate(`/${user._id}`)
           post("/api/initsocket", { socketid: socket.id });
-          navigate("/")
         }
 
       });

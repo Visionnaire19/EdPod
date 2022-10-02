@@ -7,6 +7,7 @@ import { Noise } from "noisejs";
 import "../utils.css";
 import Bubbles from "../components/Bubbles.js";
 
+
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
   return {
@@ -18,15 +19,26 @@ function getWindowDimensions() {
 const CANVAS_WIDTH = getWindowDimensions.width;
 
 const NOISE_AMOUNT = 5;
-const NOISE_SPEED = 0.004;
+const NOISE_SPEED = 0.3;
 const SCROLL_SPEED = 0.05;
 
 const noise = new Noise();
 
 const SubjectPage = (props) => {
+  const [userId, setUserId] = useState(undefined);
+
+  useEffect(() => {
+    get("/api/whoami").then((user) => {
+      if (user._id) {
+        // they are registed in the database, and currently logged in.
+        setUserId(user._id);
+        console.log("user_ID", user_id)
+        // setUser(user);
+      }
+    });
+  }, []);
   const [links, setLinks] = useState([]);
   const [rooms, setRooms] = useState([]);
-  const [empty, setEmpty] = useState(true);
   let subject = props.SubjectName;
 
   //Will ultimately only get the people in the same institution as the person connected
@@ -131,7 +143,7 @@ const SubjectPage = (props) => {
   
   return (
     <>
-      <NavbarLogin />
+    <NavbarLogin userId={userId}></NavbarLogin>
       <div>
         <Header SubjectName={subject}></Header>
         <div className="bubbles-wrapper">
