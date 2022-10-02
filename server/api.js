@@ -39,19 +39,20 @@ router.get("/pods",(req, res) => {
   })
 
 router.post("/signup", (req,res) =>{
-  
-  User.find({username : req.body.username}).then((user) =>{
-      const newUser = new User({
-        name: user.name,
-        institution: user.institution,
-        globalInteraction: user.globalInteraction
-  
-      });
-  
-      return newUser.save();
-    
-    res.send(user)
-  })
+  let user = req.body;
+
+  console.log("2CEFWRVFE", user.globalInteraction)
+  const newUser = new User({
+    username: user.username,
+    password: user.password,
+    email:user.email,
+    institution: user.institution,
+    globalInteraction: user.globalInteraction
+
+  });
+
+  newUser.save().then((user) => res.send(user));
+
   
 })
 module.exports = router;

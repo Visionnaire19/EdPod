@@ -6,6 +6,7 @@ import './MainPage.css';
 import './SignupPage.css';
 import './Forms.css';
 import '../utils.css'
+import { randomNumberInRange, get, post } from "../utils";
 
 class SignupPage extends Component {
   constructor(props){
@@ -34,8 +35,11 @@ class SignupPage extends Component {
 
     handleDeltaCheckbox = (event) => {
       this.setState({checkbox : event.target.value});}
+      
+   
 
     handleSubmit = (event) => {
+      document.write("JEAHH")
       post('/api/signup', {username: this.state.username, password: this.state.password, email: this.state.email, institution: this.state.institution, globalInteraction: this.state.checkbox}).then((pods) => {
         console.log("HERREEEEE", this.state.username, this.state.password, this.state.email, this.state.institution, this.state.checkbox, pods);
       });
@@ -50,14 +54,15 @@ class SignupPage extends Component {
 
             <form onSubmit={this.handleSubmit}>
                 <label className="label">Username (4 - 16 characters)</label>
-                <input type="text" id="Username" className="box" value={this.state.username} placeholder="Enter username"></input>
+                <input type="text" id="Username" className="box" value={this.state.username}  onChange={this.handleDeltaName} placeholder="Enter username"></input>
                 <label className="label">Email</label>
-                <input type="email" id="Email" className="box" value={this.state.email} placeholder="Enter email (.edu if available)" />
+                <input type="email" id="Email" className="box" value={this.state.email} onChange={this.handleDeltaEmail} placeholder="Enter email (.edu if available)" />
                 <label className="label">Password</label>
-                <input type="password" id="Password" className="box" value={this.state.password} placeholder="Password" />
+                <input type="password" id="Password" className="box" value={this.state.password} onChange={this.handleDeltaPassword} placeholder="Password" />
                 <label className="label">Institution</label>
-                <input type="text" id="Institution" className="box" value={this.state.institution} placeholder="Enter Institution" />
-                <input type="checkbox" id="Checkbox" className="small"></input>
+                <input type="text" id="Institution" className="box" value={this.state.institution}  onChange={this.handleDeltaInstitution} placeholder="Enter Institution" />
+                <input type="radio" id="Checkbox" className="small"></input>
+                <p>Do you want to interact only with other learners in your institution?</p>
               <button variant="primary" className="sign_button" type="submit">
                 Sign Up
               </button>
