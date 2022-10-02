@@ -23,9 +23,6 @@ const noise = new Noise();
 const SubjectPage = (props) =>{
     console.log("Subject props " + props.SubjectName)
 
-    
-    
-
     const animationRef = React.useRef();
     const bubblesRef = React.useRef(
         positions.map((bubble) => ({
@@ -76,7 +73,7 @@ const SubjectPage = (props) =>{
           }
     
           return {
-            ...bubble,
+            ...bubble.name,
             noiseSeedX: newNoiseSeedX,
             noiseSeedY: newNoiseSeedY,
             x: newX < -200 ? CANVAS_WIDTH : newX,
@@ -87,6 +84,7 @@ const SubjectPage = (props) =>{
     
         animationRef.current = requestAnimationFrame(animate);
       }
+
 
     return(
         <div> 
@@ -104,8 +102,9 @@ const SubjectPage = (props) =>{
             }}
             
            >
-            <h3>{bubble.name}</h3>
+            <a href={bubble.link}> <h3>{bubble.name}</h3></a>
           </div>
+          
         ))}
       </div>
     </div>
@@ -118,19 +117,20 @@ const SubjectPage = (props) =>{
 export default SubjectPage
 
 const rooms = [
-    "Differential equations",
-    "Music",
-    "Video",
-    "Afrobeat",
-    "Differential equations",
-    "Music",
-    "Video",
-    "Afrobeat",
+    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
+    {name: "Music", link:"https://mit.zoom.us/j/3454166550"},
+    {name: "Video", link:"https://mit.zoom.us/j/3454166550"},
+    {name: "Afrobeat", link:"https://mit.zoom.us/j/3454166550"},
+    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
+    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
+    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
+    {name: "Differential equations", link:"https://mit.zoom.us/j/3454166550"},
+   
     
 ]
 
 
 const positions = rooms.map(
-    (name) => {
-        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-300), y:randomNumberInRange(40,300), name: name} 
+    (name,link) => {
+        return { s: 1.0, x: randomNumberInRange(100,getWindowDimensions().width-300), y:randomNumberInRange(40,300), name: name, link:link} 
     });
