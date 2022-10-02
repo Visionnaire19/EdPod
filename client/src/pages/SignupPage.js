@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import NavbarLogin from '../components/NavbarLogin';
 import './MainPage.css';
 import './SignupPage.css';
 import './Forms.css';
@@ -9,6 +10,8 @@ import '../utils.css'
 
 const SignupPage = () => {
     return (
+      <>
+      <NavbarLogin />
           <div className="wrapper">
             <main className="MainPage-container">
             <Form>
@@ -34,6 +37,7 @@ const SignupPage = () => {
             </Form>
             </main>
             </div>
+            </>
           )
 }
 

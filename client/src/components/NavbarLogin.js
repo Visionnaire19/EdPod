@@ -4,19 +4,22 @@ import "./NavbarLogin.css";
 const NavBar = () => {
   return (
     <div className="navbar">
-    <header className="pageTitle">
-      EdPod
-    </header>
+      <a href="/">
+        <header className="pageTitle">EdPod</header>
+      </a>
 
-    <div className="buttons">
-      <button type="button" className="signUpButton">
-        Sign Up
-      </button>
-      <button type="button" className="loginButton">
-        Log In
-      </button>
-    </div>
-
+      <div className="buttons">
+        <a href="/signup">
+          <button type="button" className="signUpButton">
+            Sign Up
+          </button>
+        </a>
+        <a href="/login">
+          <button type="button" className="loginButton">
+            Log In
+          </button>
+        </a>
+      </div>
     </div>
   );
 };

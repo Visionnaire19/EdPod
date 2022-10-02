@@ -17,6 +17,8 @@
   border: #FFB217 2px solid;
 }
 
-.text{
-  margin-right: auto;
+.subtext{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
