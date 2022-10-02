@@ -6,6 +6,7 @@ const podSchema = new mongoose.Schema({
     link: String,
     topic:String,
     institution: String,
+    username: String,
    
 });
 

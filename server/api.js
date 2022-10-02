@@ -1,16 +1,15 @@
+const { request } = require("express");
 const express = require("express");
 const router = express.Router();
 const Pod = require("./models/pod");
 
-router.get("/damn", (req, res) => {
-    res.status(200).send("I hope this worked");
-})
+// router.get("/pods", (req, res) => {
+//     res.status(200).send(req.body);
+// })
 //Add auth.ensureLoggedIn later
 //Add institution of the person when login is confirmed. 
 router.post("/newPod", (req,res) => { 
-
     const newPod = new Pod({
-
     name: req.body.name,
     link: req.body.link,
     topic:req.body.topic,
@@ -23,11 +22,12 @@ router.post("/newPod", (req,res) => {
     
   });
 
-router.get("/pods",  (req, res) => {
-    let topic = req.topic;
-    const want = Pod.find({topic: topic}).exec();
+router.get("/pods",(req, res) => {
+    let topic = req.query.topic;
 
-    res.send(want)
-  });
+    
+    Pod.find({topic:topic}).then((pods) => res.send(pods))
+   
+  })
 
 module.exports = router;
