@@ -131,7 +131,7 @@ const SubjectPage = (props) =>{
       </div>
     </div>
     <div>
-      <button>New Pod</button>
+      <h3 className="SubjectPage-fixedtext">Have another topic in mind? Create a new subject matter bubble <a href="">here</a>.</h3>
     </div>
         </div>
 

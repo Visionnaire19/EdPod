@@ -27,3 +27,9 @@
     justify-content: center;
     height: 100%;
   }
+
+  .SubjectPage-fixedtext {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+   }
