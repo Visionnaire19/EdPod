@@ -175,7 +175,7 @@ const SubjectPage = (props) =>{
     </div>
     <div>
 
-      <button type="mybutton" onclick = {collectData}>Have another topic in mind? Create a new subject matter bubble here.</button>
+      <button className = "mybutton" onClick = {collectData}><h3>Have another topic in mind? Create a new subject matter bubble here.</h3></button>
     </div>
         </div>
 
