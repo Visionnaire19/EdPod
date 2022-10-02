@@ -14,3 +14,15 @@
 .buttons{
     font-family: 'Chalkduster', sans-serif;
 }
+
+.loginButton{
+    background-color: #8064A2;
+    font-size: 20px;
+    font-family: 'Chalkduster', sans-serif;
+}
+
+.signUpButton{
+    background-color: #FFB217;
+    font-size: 20px;
+    font-family: 'Chalkduster', sans-serif;
+}

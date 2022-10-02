@@ -1,5 +1,4 @@
 import "./NavbarLogin.css";
-import { Button } from "react-bootstrap";
 
 const NavBar = () => {
   return (
@@ -9,12 +8,16 @@ const NavBar = () => {
     </header>
 
     <div className="buttons">
-      <Button>
+    <a href="src/pages/SignupPage">
+      <button type="button" className="signUpButton">
         Sign Up
-      </Button>
-      <Button>
+      </button>
+      </a>
+      <a href="src/pages/LoginPage">
+      <button type="button" className="loginButton">
         Log In
-      </Button>
+      </button>
+      </a>
     </div>
 
     </div>
