@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import NavbarLogin from '../components/NavbarLogin';
@@ -7,34 +7,57 @@ import './SignupPage.css';
 import './Forms.css';
 import '../utils.css'
 
-function collectSignup () {
-  let data = new FormData();
-  data.append('username', document.getElementById('Username').value);
-  data.append('password', document.getElementById('Password').value);
-  data.append('email', document.getElementById('Email').value);
-  data.append('checkbox', document.getElementById('Checkbox').value);
+class SignupPage extends Component {
+  constructor(props){
+    super(props)
 
-  let username = data.get('username');
-  let password = data.get('password');
-  let email = data.get('email');
-  let checkbox = data.get('checkbox');
-   }
+    this.state = {
+      username: '',
+      password: '',
+      email: '',
+      institution: '',
+      checkbox: '',
+    }
+  }
+
+    handleDeltaName = (event) => {
+      this.setState({username : event.target.value});}
+      
+    handleDeltaPassword = (event) => {
+      this.setState({password : event.target.value});}
+
+    handleDeltaEmail = (event) => {
+      this.setState({email : event.target.value})};
+
+    handleDeltaInstitution = (event) => {
+      this.setState({institution : event.target.value});}
+
+    handleDeltaCheckbox = (event) => {
+      this.setState({checkbox : event.target.value});}
+
+    handleSubmit = (event) => {
+      post('/api/signup', {username: this.state.username, password: this.state.password, email: this.state.email, institution: this.state.institution, globalInteraction: this.state.checkbox}).then((pods) => {
+        console.log("HERREEEEE", this.state.username, this.state.password, this.state.email, this.state.institution, this.state.checkbox, pods);
+      });
+        event.preventDefault();}
+
+    render() {
   
-const SignupPage = () => {
-
     return (
       <>
       <NavbarLogin />
           <div className="wrapper">
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label className="label">Username (4 - 16 characters)</label>
-                <input type="text" id="Username" className="box" placeholder="Enter username"></input>
+                <input type="text" id="Username" className="box" value={this.state.username} placeholder="Enter username"></input>
                 <label className="label">Email</label>
-                <input type="email" id="Email" className="box" placeholder="Enter email (.edu if available)" />
+                <input type="email" id="Email" className="box" value={this.state.email} placeholder="Enter email (.edu if available)" />
                 <label className="label">Password</label>
-                <input type="password" id="Password" className="box" placeholder="Password" />
+                <input type="password" id="Password" className="box" value={this.state.password} placeholder="Password" />
+                <label className="label">Institution</label>
+                <input type="text" id="Institution" className="box" value={this.state.institution} placeholder="Enter Institution" />
                 <input type="checkbox" id="Checkbox" className="small"></input>
-              <button variant="primary" className="sign_button" type="button" onClick={collectSignup}>
+              <button variant="primary" className="sign_button" type="submit">
                 Sign Up
               </button>
             </form>
@@ -42,6 +65,8 @@ const SignupPage = () => {
             </>
           );
 }
+}
+
 export default SignupPage;
 
 
