@@ -2,8 +2,9 @@
     /* display:flex; */
     justify-content: center;
     align-items: center;
-    font-family: "Arial Narrow", sans-serif;
-    font-size: 4vh;
+    /* font-family: "Arial Narrow", sans-serif; */
+    font-family: "Chalkduster", sans-serif;
+    font-size: 3vh;
 }
 
 .bubbles:hover{

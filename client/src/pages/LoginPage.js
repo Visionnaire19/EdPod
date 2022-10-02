@@ -45,7 +45,9 @@ class LoginPage extends Component {
       <button variant="primary" type="submit" className="button">
         Login
       </button>
-      <small className="small">Not registered yet? Sign up <a target="/signup">here!</a></small>
+      <a href="/signup" className="sendBack">
+      <small className="small">Not registered yet? Sign up here! </small>
+      </a>
     </form>
     </div>
     </>

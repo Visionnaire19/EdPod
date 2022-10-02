@@ -9,6 +9,7 @@ const MainPage = () => {
       <NavBar />
       <div className="wrapper">
         <div className="upper">
+          <p className="slogan">Connecting learners beyond the classroom</p>
         <input className="textBox"></input>
         <div className="subtext">
           <p>Enter the subject or course you are currently working on. Or click on one below to get started.</p>
